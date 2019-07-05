@@ -9,7 +9,7 @@ class CleanDeployer extends EOSDeployer {
         defineImmutableProperties(this, [
             {
                 name: 'deploy',
-                value: async function (wasmPath, abiPath, cpuAmount=null, netAmount=null, ramBytes=null, payer=provider.defaultAccount) {
+                value: async function (wasmPath, abiPath, options, cpuAmount=null, netAmount=null, ramBytes=null, payer=provider.defaultAccount) {
                     let newContractAccount = await accountFactory.createRandom();
                     if(cpuAmount) {
                       assert(netAmount, "If cpuAmount is given, netAmount must be given as well")
@@ -23,7 +23,7 @@ class CleanDeployer extends EOSDeployer {
                     if(ramBytes) {
                       await newContractAccount.buyRam(ramBytes, payer)
                     }
-                    return this.__deploy(wasmPath, abiPath, newContractAccount);;
+                    return this.__deploy(wasmPath, abiPath, newContractAccount, options);;
                 }
             }
         ]);
