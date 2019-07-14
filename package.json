@@ -1,5 +1,5 @@
 {
-  "name": "eoslime",
+  "name": "eoslime-priveos",
   "version": "0.0.14",
   "description": "eoslime is an EOS development and deployment framework based on eosjs.js",
   "main": "index.js",
